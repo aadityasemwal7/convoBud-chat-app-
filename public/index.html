@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvoBud</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f4f8; /* Tailwind blue-300 equivalent */
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #convo-box {
+            width: 50%;
+            margin: 25px auto;
+            height: 78vh;
+            background-color: #ffffff; /* Tailwind white */
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+        .app-title {
+            color: #3b82f6; /* Tailwind blue-500 */
+            font-weight: 600; /* Semi-bold */
+            font-size: 24px;
+            padding: 15px 0;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #alert-message {
+            color: #10b981; /* Tailwind green-600 */
+            text-align: center;
+            font-size: 16px;
+            padding: 5px 0;
+        }
+        #all-message {
+            padding: 10px;
+            overflow-y: scroll; /* Enable scrolling for messages */
+            height: calc(78vh - 120px); /* Adjust for other elements height */
+        }
+        #message-box {
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #msg-input {
+            width: 70%;
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #d1d5db; /* Tailwind gray-400 */
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        #send-button {
+            background-color: #ffffff; /* Tailwind white */
+            border: 2px solid #d1d5db; /* Tailwind gray-400 */
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        #send-button:hover {
+            background-color: #edf2f7; /* Tailwind gray-100 */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex items-center justify-center flex-col">
+        <div id="convo-box">
+            <div class="app-title">ConvoBud</div>
+            <div id="alert-message">Alert message here</div>
+            <div id="all-message"></div>
+        </div>
+        <div id="message-box">
+            <input name="message" id="msg-input" type="text" placeholder="Your message here">
+            <button id="send-button" type="button">Send</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="./index.js"></script>
+</body>
+</html>
